@@ -6,4 +6,5 @@ COPY . /app
 COPY ./.ssh /root/
 WORKDIR /app
 RUN pip install -r requirements.txt
+RUN ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts
 ENTRYPOINT ["/app/run.sh"]
