@@ -1,7 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 branch=$1
 
-git fetch origin
-git checkout --track origin/$branch
+echo "Working dir: `pwd`, branch: $branch"
+
+git fetch
+git checkout $branch
+git merge origin/$branch
 python app.py
+
